@@ -7,20 +7,25 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Label Content="ID:" HorizontalAlignment="Left" Margin="10,31,0,0" VerticalAlignment="Top"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="6*"/>
+            <ColumnDefinition Width="16*"/>
+            <ColumnDefinition Width="245*"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="ID:" HorizontalAlignment="Left" Margin="10,31,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
 
-        <TextBox x:Name="box1" HorizontalAlignment="Left" Height="22" Margin="37,33,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="92"/>
-        <Label Content="Nome:" HorizontalAlignment="Left" Margin="10,62,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.393,-1.973"/>
-        <TextBox x:Name="boxnome" HorizontalAlignment="Left" Margin="60,66,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="730" TextChanged="TextBox_TextChanged_1" />
-        <Label Content="Sobrenome:" HorizontalAlignment="Left" Margin="9,93,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.625,-0.47"/>
-        <TextBox x:Name="boxsobrenome" HorizontalAlignment="Left" Margin="88,97,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="702"/>
-        <Label Content="Telefone:" HorizontalAlignment="Left" Margin="10,124,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.625,-0.47"/>
-        <TextBox x:Name="boxtelefone" HorizontalAlignment="Left" Margin="83,128,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="702"/>
-        <Button Content="Buscar" HorizontalAlignment="Left" Margin="219,170,0,0" VerticalAlignment="Top" RenderTransformOrigin="2.454,-1.213"/>
-        <Button Content="Alterar" HorizontalAlignment="Left" Margin="154,170,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="btnExcluir" Content="Excluir" HorizontalAlignment="Left" Margin="89,170,0,0" VerticalAlignment="Top" Click="btnExcluir_Click"/>
-        <Button x:Name="btnSalvar" Content="Adicionar" HorizontalAlignment="Left" Margin="22,170,0,0" VerticalAlignment="Top" Click="Button_Click"/>
-        <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,199,0,0"/>
+        <TextBox x:Name="box1" HorizontalAlignment="Left" Height="22" Margin="20,33,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="92" Grid.ColumnSpan="2" Grid.Column="1"/>
+        <Label Content="Nome:" HorizontalAlignment="Center" Margin="0,62,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.393,-1.973" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="boxnome" HorizontalAlignment="Left" Margin="42,66,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="198" TextChanged="TextBox_TextChanged_1" Grid.ColumnSpan="2" Grid.Column="1" />
+        <Label Content="Sobrenome:" HorizontalAlignment="Left" Margin="9,93,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.625,-0.47" Grid.ColumnSpan="3"/>
+        <TextBox x:Name="boxsobrenome" HorizontalAlignment="Left" Margin="23,97,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" Grid.Column="2"/>
+        <Label Content="Telefone:" HorizontalAlignment="Left" Margin="10,124,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.625,-0.47" Grid.ColumnSpan="3"/>
+        <TextBox x:Name="boxtelefone" HorizontalAlignment="Left" Margin="18,128,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175" Grid.Column="2"/>
+        <Button Content="Buscar" HorizontalAlignment="Left" Margin="134,165,0,0" VerticalAlignment="Top" RenderTransformOrigin="2.454,-1.213" Grid.Column="2" Click="Button_Click_1"/>
+        <Button x:Name="btnAlterar" Content="Alterar" HorizontalAlignment="Left" Margin="74,165,0,0" VerticalAlignment="Top" Click="btnAlterar_Click" Grid.Column="2"/>
+        <Button x:Name="btnExcluir" Content="Excluir" HorizontalAlignment="Left" Margin="23,165,0,0" VerticalAlignment="Top" Click="btnExcluir_Click" Grid.Column="2"/>
+        <Button x:Name="btnSalvar" Content="Adicionar" HorizontalAlignment="Left" Margin="2,165,0,0" VerticalAlignment="Top" Click="Button_Click" Grid.ColumnSpan="2" Grid.Column="1"/>
+        <DataGrid x:Name="dtDados" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="9,190,10,9" SelectionChanged="DataGrid_SelectionChanged" Grid.ColumnSpan="3"/>
 
     </Grid>
 </Window>
