@@ -211,6 +211,38 @@ namespace Desafio_WPFAPP
             public string Telefone { get; set; }
         }
 
+        private void BoxTelefone_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+         
+            e.Handled = !char.IsDigit(e.Text, 0);
+        }
+        private void BoxTelefone_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            string texto = boxtelefone.Text.Replace("(", "").Replace(")", "").Replace("-", "").Replace(" ", "");
+            if (texto.Length <= 11)
+            {
+                if (texto.Length >= 7)
+                {
+                    boxtelefone.Text = string.Format("({0}) {1}-{2}",
+                        texto.Substring(0, 2),
+                        texto.Substring(2, 5),
+                        texto.Substring(7, texto.Length - 7));
+                }
+                else if (texto.Length >= 3)
+                {
+                    boxtelefone.Text = string.Format("({0}) {1}",
+                        texto.Substring(0, 2),
+                        texto.Substring(2, texto.Length - 2));
+                }
+                else if (texto.Length > 0)
+                {
+                    boxtelefone.Text = string.Format("({0}", texto.Substring(0, texto.Length));
+                }
+            }
+
+            boxtelefone.SelectionStart = boxtelefone.Text.Length;
+        }
+    
         private async void Button_Click_1(object sender, RoutedEventArgs e)
         {
             string id = box1.Text; 
